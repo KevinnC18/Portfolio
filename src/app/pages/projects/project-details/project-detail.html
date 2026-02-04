@@ -1,0 +1,81 @@
+<article class="min-h-screen bg-gradient-to-b from-slate-900 via-indigo-950/30 to-slate-900">
+    @if (project(); as p) {
+    <!-- Header -->
+    <header class="hero bg-gradient-to-r from-indigo-900 via-slate-900 to-indigo-900 min-h-[20vh]">
+        <div class="hero-content text-center">
+            <div class="max-w-3xl">
+                <span class="badge badge-outline badge-lg mb-4">{{ p.type }}</span>
+                <h1 class="text-5xl font-bold text-white">{{ p.name }}</h1>
+            </div>
+        </div>
+    </header>
+
+    <div class="max-w-4xl mx-auto px-4 py-16 space-y-16">
+        <!-- Contexto / Problema -->
+        @if (p.context) {
+        <section>
+            <h2 class="text-2xl font-bold text-white mb-4 flex items-center gap-2">
+                <span class="text-indigo-400">01.</span> Contexto / Problema
+            </h2>
+            <p class="text-slate-300 leading-relaxed">{{ p.context }}</p>
+        </section>
+        }
+
+        <!-- Solución -->
+        @if (p.solution) {
+        <section>
+            <h2 class="text-2xl font-bold text-white mb-4 flex items-center gap-2">
+                <span class="text-indigo-400">02.</span> Solución
+            </h2>
+            <p class="text-slate-300 leading-relaxed">{{ p.solution }}</p>
+        </section>
+        }
+
+        <!-- Tecnologías usadas -->
+        <section>
+            <h2 class="text-2xl font-bold text-white mb-4 flex items-center gap-2">
+                <span class="text-indigo-400">03.</span> Tecnologías usadas
+            </h2>
+            <div class="flex flex-wrap gap-2">
+                @for (tech of p.technologies; track tech) {
+                <span class="badge badge-primary badge-lg">{{ tech }}</span>
+                }
+            </div>
+        </section>
+
+        <!-- Retos y aprendizajes -->
+        @if (p.challenges) {
+        <section>
+            <h2 class="text-2xl font-bold text-white mb-4 flex items-center gap-2">
+                <span class="text-indigo-400">04.</span> Retos y aprendizajes
+            </h2>
+            <p class="text-slate-300 leading-relaxed">{{ p.challenges }}</p>
+        </section>
+        }
+
+        <!-- Botones de acción -->
+        <section class="flex flex-wrap gap-4 pt-8">
+            @if (p.demoUrl) {
+            <a [href]="p.demoUrl" target="_blank" rel="noopener noreferrer" class="btn btn-primary">
+                Ver Demo
+            </a>
+            }
+            @if (p.repoUrl) {
+            <a [href]="p.repoUrl" target="_blank" rel="noopener noreferrer" class="btn btn-outline btn-primary">
+                Repositorio (GitHub)
+            </a>
+            }
+            <a routerLink="/projects" class="btn btn-ghost text-slate-300 hover:text-white">
+                ← Volver a proyectos
+            </a>
+        </section>
+    </div>
+    } @else {
+    <div class="min-h-[60vh] flex items-center justify-center">
+        <div class="text-center">
+            <p class="text-slate-400 mb-4">Proyecto no encontrado</p>
+            <a routerLink="/projects" class="btn btn-primary">Volver a proyectos</a>
+        </div>
+    </div>
+    }
+</article>

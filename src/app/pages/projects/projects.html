@@ -1,0 +1,29 @@
+<section class="min-h-screen bg-gradient-to-b from-slate-900 via-indigo-950/30 to-slate-900 py-16 px-4">
+    <div class="max-w-6xl mx-auto">
+        <h1 class="text-4xl font-bold text-white mb-8 text-center">Proyectos</h1>
+
+        <div class="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
+            @for (project of projects; track project.slug) {
+            <div
+                class="card w-full bg-base-100 shadow-2xl hover:shadow-indigo-500/20 transition-all duration-300 border border-white/5">
+                <div class="card-body">
+                    <div class="flex justify-between items-start gap-2">
+                        <h2 class="text-2xl font-bold text-white">{{ project.name }}</h2>
+                        <span class="badge badge-outline badge-sm shrink-0">{{ project.type }}</span>
+                    </div>
+
+                    <div class="flex flex-wrap gap-2 mt-4">
+                        @for (tech of project.technologies; track tech) {
+                        <span class="badge badge-primary badge-sm">{{ tech }}</span>
+                        }
+                    </div>
+
+                    <div class="mt-6">
+                        <a [routerLink]="['/projects', project.slug]" class="btn btn-primary btn-block">Ver proyecto</a>
+                    </div>
+                </div>
+            </div>
+            }
+        </div>
+    </div>
+</section>
