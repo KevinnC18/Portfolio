@@ -1,61 +1,78 @@
-<div class="sticky top-0 z-50 w-full transition-all duration-500">
-    <header class="transition-all duration-500"
-        [ngClass]="isScrolled ? 'mx-4 mt-4 rounded-2xl bg-indigo-900/60 backdrop-blur-xl border border-white/10 shadow-2xl' : 'bg-indigo-900'">
-        <nav aria-label="Global" class="flex items-center justify-between transition-all duration-500"
-            [ngClass]="isScrolled ? 'px-6 py-3' : 'px-6 py-6 lg:px-8'">
-            <div class="flex lg:flex-1">
-            </div>
-            <div class="flex lg:hidden">
-                <button type="button" command="show-modal" commandfor="mobile-menu"
-                    class="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-gray-200">
-                    <span class="sr-only">Open main menu</span>
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" data-slot="icon"
-                        aria-hidden="true" class="size-6">
-                        <path d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" stroke-linecap="round"
-                            stroke-linejoin="round" />
+<nav
+    class="sticky top-0 z-50 bg-background-tertiary after:pointer-events-none after:absolute after:inset-x-0 after:bottom-0 after:h-px after:bg-white/10">
+    <div class="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
+        <div class="relative flex h-16 items-center justify-between">
+
+            <!-- Botón Menú Móvil -->
+            <div class="absolute inset-y-0 left-0 flex items-center sm:hidden transition-all duration-500 group">
+                <button type="button" (click)="toggleMenu()"
+                    class="relative inline-flex items-center justify-center rounded-md p-2 text-gray hover:bg-background-tertiary hover:text-light focus:outline-none">
+                    <span class="sr-only">Abrir menú</span>
+                    <!-- Icono Hamburguesa (se oculta si está abierto) -->
+                    <svg [class.hidden]="isMobileMenuOpen()" class="size-6" fill="none" viewBox="0 0 24 24"
+                        stroke-width="1.5" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round"
+                            d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+                    </svg>
+                    <!-- Icono X (se muestra si está abierto) -->
+                    <svg [class.hidden]="!isMobileMenuOpen()" class="size-6" fill="none" viewBox="0 0 24 24"
+                        stroke-width="1.5" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
                     </svg>
                 </button>
             </div>
-            <div class="hidden lg:flex lg:gap-x-12">
-                <a href="/home" class="text-sm/6 font-semibold text-white">Inicio</a>
-                <a href="/about" class="text-sm/6 font-semibold text-white">Sobre mí</a>
-                <a href="/projects" class="text-sm/6 font-semibold text-white">Proyectos</a>
-            </div>
-            <div class="hidden lg:flex lg:flex-1 lg:justify-end">
-            </div>
-        </nav>
-        <el-dialog>
-            <dialog id="mobile-menu" class="backdrop:bg-primary lg:hidden">
-                <div tabindex="0" class="fixed inset-0 focus:outline-none">
-                    <el-dialog-panel
-                        class="fixed inset-y-0 right-0 z-50 w-full overflow-y-auto bg-gray-900 p-6 sm:max-w-sm sm:ring-1 sm:ring-gray-100/10 transition-all duration-300">
-                        <div class="flex items-center justify-between">
-                            <button type="button" command="close" commandfor="mobile-menu"
-                                class="-m-2.5 rounded-md p-2.5 text-gray-200">
-                                <span class="sr-only">Close menu</span>
-                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
-                                    data-slot="icon" aria-hidden="true" class="size-6">
-                                    <path d="M6 18 18 6M6 6l12 12" stroke-linecap="round" stroke-linejoin="round" />
-                                </svg>
-                            </button>
-                        </div>
-                        <div class="mt-6 flow-root">
-                            <div class="-my-6 divide-y divide-white/10">
-                                <div class="space-y-2 py-6">
-                                    <a href="/home"
-                                        class="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-white hover:bg-white/5">Inicio</a>
-                                    <a href="/about"
-                                        class="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-white hover:bg-white/5">Sobre
-                                        mí</a>
-                                    <a href="/projects"
-                                        class="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-white hover:bg-white/5">Proyectos</a>
-                                </div>
-                                <div class="py-6">
-                                </div>
-                            </div>
-                        </div>
-                    </el-dialog-panel>
+
+            <!-- Contenedor Logo + Links -->
+            <div class="flex flex-1 items-center justify-center sm:items-stretch sm:justify-between">
+                <!-- Logo -->
+                <div class="flex shrink-0 items-center gap-2 cursor-pointer" (click)="goToHome()">
+                    <div class="w-12 h-12 rounded-lg flex items-center justify-center">
+                        <img src="https://res.cloudinary.com/dz1vsm25f/image/upload/logo-removebg-preview_dyliyq.png"
+                            alt="Logo">
+                    </div>
+                    <span class="text-text tracking-tight font-semibold text-[10px]">
+                        KEVIN SMITH <br> <span class="text-primary">CORREAL CHOCONTA</span>
+                    </span>
                 </div>
-            </dialog>
-        </el-dialog>
-    </header>
+
+                <div class="hidden sm:ml-6 sm:flex items-center">
+                    <div class="flex space-x-5">
+                        <a routerLink="/home" routerLinkActive="bg-primary-active text-color-text"
+                            [routerLinkActiveOptions]="{exact: true}"
+                            class="rounded-full px-3 py-2 text-sm font-medium hover:text-text-secondary hover:scale-105 transition-all duration-300">
+                            Inicio
+                        </a>
+                        <a routerLink="/about" routerLinkActive="bg-primary text-color-text"
+                            [routerLinkActiveOptions]="{exact: true}"
+                            class="rounded-full px-3 py-2 text-sm font-medium text-text-secondary hover:scale-105 hover:text-light transition-all duration-300">Sobre
+                            mí</a>
+                        <a routerLink="/projects" routerLinkActive="bg-primary text-color-text"
+                            [routerLinkActiveOptions]="{exact: false}"
+                            class="rounded-full px-3 py-2 text-sm font-medium text-text-secondary hover:scale-105  hover:text-light transition-all duration-300">Proyectos</a>
+                        <a href="mailto:kevincorreal1808@gmail.com"
+                            class="rounded-full px-3 py-2 text-sm font-medium text-primary hover:scale-105 hover:text-primary-hover border border-primary/70 transition-all duration-300">Contáctame</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Menú Móvil Desplegable -->
+    <div [class.hidden]="!isMobileMenuOpen()"
+        class="sm:hidden bg-background-tertiary border-t border-white/10 transition-all duration-500 group">
+        <div class="space-y-1 px-2 pt-2 pb-3">
+            <a routerLink="/home" routerLinkActive="bg-primary/20 text-light" [routerLinkActiveOptions]="{exact:true}"
+                (click)="closeMenu()"
+                class="block rounded-md px-3 py-2 text-base font-medium text-text-secondary hover:text-light">Inicio</a>
+            <a routerLink="/about" routerLinkActive="bg-primary/20 text-light" [routerLinkActiveOptions]="{exact:true}"
+                (click)="closeMenu()"
+                class="block rounded-md px-3 py-2 text-base font-medium text-text-secondary hover:text-light">Sobre
+                mí</a>
+            <a routerLink="/projects" routerLinkActive="bg-primary/20 text-light" (click)="closeMenu()"
+                class="block rounded-md px-3 py-2 text-base font-medium text-text-secondary hover:text-light">Proyectos</a>
+            <a href="mailto:kevincorreal1808@gmail.com" routerLinkActive="bg-primary/20 text-light"
+                [routerLinkActiveOptions]="{exact:true}" (click)="closeMenu()"
+                class="block rounded-md px-3 py-2 text-base font-medium text-text-secondary hover:text-light">Contáctame</a>
+        </div>
+    </div>
+</nav>

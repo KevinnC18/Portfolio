@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { Url } from 'url';
 
 interface Stat {
     title: string;
@@ -37,12 +36,12 @@ interface Certification {
 })
 export class AboutComponent implements OnInit {
     // Información personal
-    name: string = 'Kevin Correal';
+    name: string = 'Kevin Smith Correal Chocontá';
     image: string = 'https://res.cloudinary.com/dz1vsm25f/image/upload/imagen_2026-02-03_203538845_s6y5ef.png';
     role: string = 'Desarrollador de software';
     email: string = 'kevincorreal1808@gmail.com';
     location: string = 'Bogotá D.C, Colombia';
-    description: string = 'Estudiante de Ingeniería de Software con enfoque en desarrollo backend y fullstack. Actualmente en formación en Java y Spring Boot, con experiencia en la creación de aplicaciones web utilizando Angular y bases de datos relacionales. Me especializo en desarrollar soluciones estructuradas, escalables y orientadas a resolver problemas reales, aplicando buenas prácticas de desarrollo y arquitectura de software.';
+    description: string = 'Estudiante de Ingeniería de Software con experiencia práctica en desarrollo backend utilizando Java y SpringBoot, y desarrollo frontend utilizando Angular. He participado en el desarrollo de aplicaciones web aplicando principios de arquitectura de software, consumo de APIs REST, diseño responsivo y buenas prácticas de desarrollo.';
 
     // Estadísticas
     stats: Stat[] = [
@@ -83,13 +82,13 @@ export class AboutComponent implements OnInit {
     // Educación
     education: Education[] = [
         {
-            period: '2024 - Presente',
+            period: 'Feb 2024 - Presente (2027)',
             degree: 'Ingeniería de software',
             institution: 'Corporación Universitaria Iberoamericana',
             description: 'Enfoque en desarrollo de software, estructuras de datos, bases de datos y arquitectura.'
         },
         {
-            period: '2025 - Presente',
+            period: 'Mar 2025 - May 2026',
             degree: 'Curso Intensivo de Java y English Boost ',
             institution: 'Dev Senior Code LLC',
             description: 'Capacitación para Desarrolladores Java Senior con dominio de herramientas de Inteligencia Artificial y formación en inglés.'
@@ -99,22 +98,40 @@ export class AboutComponent implements OnInit {
     // Certificaciones
     certifications: Certification[] = [
         {
-            period: '2026',
-            name: 'Certificación Java Backend Developer',
-            institution: 'Dev Senior Code, CertiProf',
-            description: 'Certificación en desarrollo de APIs REST con Spring Boot y microservicios.'
+            period: 'Jun 2026',
+            name: 'Java Senior AI',
+            institution: 'Florida Global University · Dev Senior Code',
+            description: 'Diploma de programa avanzado enfocado en desarrollo de software con Java e integración de herramientas de inteligencia artificial.'
         },
         {
-            period: '2025',
-            name: 'Certificación Java Junior Developer',
-            institution: 'Dev Senior Code, CertiProf',
-            description: 'Certificación en desarrollo de aplicaciones con Java.'
+            period: 'May 2026',
+            name: 'Java Senior Developer',
+            institution: 'Dev Senior Code · CertiProf',
+            description: 'Valida competencias avanzadas en Java, Spring Boot, Angular, SQL y bases de datos NoSQL para el desarrollo de aplicaciones empresariales.'
         },
         {
-            period: '2024',
-            name: 'Certificación Remote Work Professional',
+            period: 'May 2026',
+            name: 'Java FullStack Developer',
+            institution: 'Dev Senior Code · CertiProf',
+            description: 'Acredita habilidades para desarrollar aplicaciones Full Stack utilizando Java, Spring Boot, Angular y bases de datos SQL y NoSQL.'
+        },
+        {
+            period: 'May 2026',
+            name: 'Java Backend Developer',
+            institution: 'Dev Senior Code · CertiProf',
+            description: 'Valida el desarrollo de APIs REST, aplicaciones backend con Spring Boot y fundamentos de arquitecturas de microservicios.'
+        },
+        {
+            period: 'Oct 2025',
+            name: 'Java Junior Developer',
+            institution: 'Dev Senior Code · CertiProf',
+            description: 'Acredita fundamentos de programación orientada a objetos y desarrollo de aplicaciones con Java.'
+        },
+        {
+            period: 'Abr 2024',
+            name: 'Remote Work Professional',
             institution: 'CertiProf',
-            description: 'Certificación de capacitación en trabajo remoto.'
+            description: 'Certificación en colaboración remota, comunicación efectiva y buenas prácticas para equipos distribuidos.'
         }
     ];
 
