@@ -16,7 +16,7 @@ export const PROJECTS: Project[] = [
     {
         slug: 'mundo-marcial',
         name: 'Web Mundo Marcial',
-        type: 'Web App',
+        type: 'Sitio Web',
         technologies: ['Angular', 'Bootstrap', 'NgBootstrap', 'FontAwesome'],
         context:
             'La academia requería una presencia digital moderna que permitiera centralizar información clave, mostrar horarios de entrenamiento y facilitar el contacto con nuevos estudiantes. Además, necesitaba una plataforma clara y accesible que transmitiera su identidad y profesionalismo.',
@@ -28,9 +28,26 @@ export const PROJECTS: Project[] = [
         repoUrlFront: 'https://github.com/KevinnC18/MundoMarcialPage'
     },
     {
+        slug: 'reservaya',
+        name: 'ReservaYa',
+        type: 'Sitio Web',
+        technologies: ['Angular', 'TypeScript', 'Tailwind CSS', 'Angular Signals', 'Vitest'],
+        context:
+            'ReservaYa es una plataforma web desarrollada como proyecto académico que actúa como intermediario entre comensales y restaurantes, permitiendo consultar establecimientos, gestionar reservas de forma sencilla y ofrecer a los restaurantes una vista administrativa para el seguimiento de las mismas.',
+
+        solution:
+            'Desarrollamos una Single Page Application (SPA) con Angular utilizando componentes standalone, lazy loading y Angular Signals para la gestión del estado compartido durante el flujo de reserva. La aplicación incluye búsqueda de restaurantes, visualización de detalles, formulario de reserva, confirmación con código único y un panel administrativo para la gestión de reservas.',
+
+        challenges:
+            'Uno de los principales retos fue mantener la información de la reserva entre las diferentes vistas sin depender de almacenamiento local ni recargar la aplicación. Para resolverlo implementamos un servicio centralizado utilizando Angular Signals, lo que permitió compartir el estado entre componentes de forma reactiva y mantener un flujo de navegación limpio y escalable.',
+
+        demoUrl: 'https://reservayaok.netlify.app/',
+        repoUrlFront: 'https://github.com/KevinnC18/ReservaYa'
+    },
+    {
         slug: 'gestion-inventario',
         name: 'Sistema de Gestión de Inventario',
-        type: 'CRUD',
+        type: 'Sistema Web - CRUD',
         technologies: ['Spring Boot', 'Angular', 'Base de datos (H2)'],
         context:
             'Como proyecto final de la materia de Programación Orientada a Objetos, debíamos desarrollar una solución completa que aplicara los principios vistos en clase. Decidimos crear una aplicación full-stack que permitiera gestionar un catálogo de productos mediante operaciones CRUD (Create, Read, Update, Delete).',
@@ -41,9 +58,9 @@ export const PROJECTS: Project[] = [
         repoUrl: 'https://github.com/KevinnC18/SpringBoot-Angular'
     },
     {
-        slug: 'videojuego',
-        name: 'Videojuego por consola',
-        type: 'Consola',
+        slug: 'monster-hatch',
+        name: 'Juego por consola: Monster Hatch',
+        type: 'Juego (Consola)',
         technologies: ['Java', 'POO', 'Git/GitHub'],
         context:
             'Como proyecto final del modulo 4 del curso intensivo de Java, debía completar de manera autónoma una aplicación iniciada en clase bajo la guía del profesor. El reto consistía en aplicar los conceptos aprendidos de programación orientada a objetos para construir una solución funcional y estructurada.',
@@ -57,7 +74,7 @@ export const PROJECTS: Project[] = [
     {
         slug: 'gestion-productos',
         name: 'Gestión de productos',
-        type: 'API REST',
+        type: 'Sistema Web - API REST',
         technologies: ['Spring Boot', 'Angular', 'PostgreSQL'],
         context:
             'Durante el curso intensivo de Java, desarrollamos este proyecto como parte del proceso de aprendizaje práctico, con acompañamiento y guía del profesor. El objetivo era comprender la estructura y funcionamiento de una aplicación full-stack conectada a base de datos.',
@@ -69,9 +86,33 @@ export const PROJECTS: Project[] = [
         repoUrlFront: 'https://github.com/KevinnC18/Product-Frontend'
     },
     {
+        slug: 'healthsync',
+        name: 'HealthSync',
+        type: 'Plataforma Web',
+        technologies: [
+            'React',
+            'Vite',
+            'TypeScript',
+            'NestJS',
+            'FastAPI',
+            'Python'
+        ],
+
+        context:
+            'HealthSync es una plataforma web desarrollada como proyecto académico para centralizar la gestión de información médica, facilitando la interacción entre pacientes y profesionales de la salud mediante una solución moderna que integra un frontend web, un backend de servicios y un microservicio de inteligencia artificial.',
+
+        solution:
+            'Participé en el desarrollo de una arquitectura basada en tres capas: un frontend construido con React y Vite, un backend desarrollado con NestJS para la gestión de la lógica de negocio y un microservicio implementado con FastAPI encargado de funcionalidades relacionadas con inteligencia artificial. Esta separación permitió mantener responsabilidades bien definidas y facilitar la comunicación entre los diferentes servicios.',
+
+        challenges:
+            'El proyecto me permitió comprender cómo se organiza una aplicación distribuida compuesta por múltiples tecnologías y servicios independientes. Además, reforcé conceptos relacionados con la integración entre frontend, backend y microservicios, experiencia que planeo ampliar desarrollando una versión más completa por cuenta propia.',
+
+        repoUrl: 'https://github.com/victorolave/healthsync'
+    },
+    {
         slug: 'ecommerce',
         name: 'Sistema de ecommerce',
-        type: 'API REST',
+        type: 'Sistema Web - API REST',
         technologies: ['Spring Boot', 'React', 'MySQL'],
         context:
             'Como parte de un laboratorio universitario, debía desarrollar una aplicación full-stack con arquitectura basada en API REST para un sistema de e-commerce. El objetivo era implementar una solución funcional que integrara backend, base de datos y frontend en una aplicación completa.',
@@ -85,7 +126,7 @@ export const PROJECTS: Project[] = [
     {
         slug: 'gestion-empleados',
         name: 'Sistema de gestión de empleados',
-        type: 'CRUD',
+        type: 'Sistema Web - CRUD',
         technologies: ['Node.js', 'Express', 'React', 'MySQL'],
         context:
             'Como parte de un laboratorio universitario, desarrollamos con acompañamiento del profesor un sistema de gestión de empleados. El objetivo era comprender el funcionamiento de una arquitectura full-stack basada en API REST, integrando backend, base de datos y frontend.',
@@ -95,6 +136,23 @@ export const PROJECTS: Project[] = [
             'Uno de los principales retos fue adaptarme a la estructura de un proyecto desarrollado con Node.js y React, ya que previamente había trabajado principalmente con Angular y Spring Boot. <br> Este proceso me permitió comprender mejor las diferencias entre frameworks frontend, especialmente en el manejo de componentes, estado y organización del proyecto. Además, reforcé mis conocimientos en integración frontend-backend y en el diseño de APIs REST orientadas a sistemas de gestión.',
         repoUrlBack: 'https://github.com/KevinnC18/Employees-Backend',
         repoUrlFront: 'https://github.com/KevinnC18/Employees-Frontend'
+    },
+    {
+        slug: 'escape-lab',
+        name: 'Misión Python: Escape Lab',
+        type: 'Videojuego de Consola',
+        technologies: ['Python', 'Git/GitHub'],
+
+        context:
+            'Proyecto académico desarrollado como parte de un proceso de aprendizaje en Python. El objetivo consistía en construir paso a paso un videojuego interactivo en consola mientras se aprenden los fundamentos de Python..',
+
+        solution:
+            'Participé en el desarrollo y comprensión de un videojuego por consola basado en turnos, implementado completamente en Python. El proyecto incluye lógica de combate, gestión de personajes, habilidades, inventario y flujo del juego mediante interacción desde la terminal.',
+
+        challenges:
+            'El proyecto me permitió fortalecer mi comprensión de los principios de Python y comprender cómo estructurar aplicaciones de mayor tamaño mediante la separación de responsabilidades entre clases. Actualmente estoy desarrollando una versión más completa de forma independiente, incorporando nuevas mecánicas y mejoras sobre la base original.',
+
+        repoUrlFront: 'https://github.com/alenlara1238-design/Mision-python'
     },
     {
         slug: 'gestion-vehiculos',

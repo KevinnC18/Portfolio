@@ -1,7 +1,8 @@
 <section class="min-h-screen bg-linear-to-b from-background via-background to-background py-16 px-4">
     <div class="max-w-6xl mx-auto">
         <h1 class="text-4xl font-bold mb-8 text-center">
-            <span class="text-transparent bg-clip-text bg-linear-to-r from-secondary-light to-primary"> Proyectos </span>
+            Mis<span class="text-transparent bg-clip-text bg-linear-to-r from-secondary-light to-primary"> Proyectos
+            </span>
         </h1>
 
         <div class="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
@@ -16,11 +17,11 @@
 
                     <div class="flex flex-wrap gap-2 mt-4">
                         @for (tech of project.technologies; track tech) {
-                        <span class="badge badge-primary badge-sm">{{ tech }}</span>
+                        <span class="badge badge-outline badge-sm">{{ tech }}</span>
                         }
                     </div>
 
-                    <div class="mt-6">
+                    <div class="mt-auto">
                         <a [routerLink]="['/projects', project.slug]" class="btn btn-primary btn-block rounded-full">Ver
                             proyecto</a>
                     </div>
